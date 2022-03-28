@@ -1,0 +1,22 @@
+/* //utile ? */
+
+.chevronUp {
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+}
+@media screen and (max-width: 575px){  
+#root {
+margin-left: 0;
+margin-right: 0;
+
+}}
+
+.displaynone {
+  display: none;
+}
+@media screen and (max-width : 600px){
+ .displaynone {
+  display: block;
+} 
+}
