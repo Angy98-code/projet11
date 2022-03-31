@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export const ContainerCard = styled.div`
   display: flex;
-  justify-content: center;
+  // enlever le justify-center pour eviter les 2 dernières carte centrer
   flex-wrap: wrap;
   margin-top: 30px;
   border-radius: 25px;

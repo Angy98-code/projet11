@@ -8,6 +8,9 @@ const LinkStyled = styled(Link)`
   margin-top: 120px;
   color: #ff6060;
   font-size: 18px;
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `
 
 const ContainerErrorStyled = styled.div`
@@ -34,6 +37,7 @@ const H1Styled = styled.h1`
   }
   @media (max-width: 380px) {
     font-size: 18px;
+    margin-top :31px;
   }
 `
 const ImageStyled = styled.img`
@@ -42,8 +46,9 @@ const ImageStyled = styled.img`
     height: 230px;
   }
   @media (max-width: 440px) {
-    width: 240px;
-    height: 130px;
+    width: 190px;
+    height: 100px;
+    padding-top: 100px;
   }
 `
 const LineStyled = styled.br`

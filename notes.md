@@ -36,3 +36,8 @@ Et voilà, si vous retournez dans votre fichier  Home/index.jsx  , vous avez bie
 - npm install react-image-gallery
 -# CSS
 @import "~react-image-gallery/styles/css/image-gallery.css";
+
+//////////////
+**npm run build**
+npm install -g serve
+serve -s build

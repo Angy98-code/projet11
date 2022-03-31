@@ -18,6 +18,7 @@ const DivPhotoStyled = styled.div`
     margin-left: 10px;
     margin-right: 10px;
   }
+  
 `
 const CollapseBlocStyled = styled.div`
   display: flex;
@@ -32,7 +33,8 @@ const CollapseBlocStyled = styled.div`
     margin-right: 10px;
   }
 `
-const DivBlocPropos = styled.div``
+const DivBlocPropos = styled.div`
+`
 
 function Propos() {
   return (

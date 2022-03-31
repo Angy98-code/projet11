@@ -4,7 +4,8 @@ import styled from 'styled-components'
 const StyleStarrating = styled.div`
   font-size: 30px;
   @media (max-width: 450px) {
-    font-size: 20px;
+    font-size: 15px;
+    position: relative;
   }
 `
 //use props

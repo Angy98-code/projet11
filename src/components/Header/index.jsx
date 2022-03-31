@@ -14,7 +14,11 @@ const StyledLink = styled(Link)`
   }
   @media (min-width: 450px) {
     font-size: 24px;
-    padding-left:30px;
+    padding-left: 30px;
+  }
+  @media (max-width: 450px) {
+    text-transform: uppercase;
+    font-size : 12px;
   }
 `
 

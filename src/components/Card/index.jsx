@@ -44,7 +44,6 @@ export const CardTitle = styled.span`
   left: 20px;
   right: 10px;
   top: 280px;
-  bottom: 60px;
   z-index: 4;
   font-style: normal;
   font-weight: 500;
@@ -54,8 +53,11 @@ export const CardTitle = styled.span`
   flex-wrap: wrap;
   align-items: flex-end;
   color: #ffffff;
-  @media(max-width : 380px){
-   font-size: 15px;
+  @media (max-width: 345px) {
+    right: 0px;
+  }
+  @media (max-width: 380px) {
+    font-size: 15px;
   }
 `
 

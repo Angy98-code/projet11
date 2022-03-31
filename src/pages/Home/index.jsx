@@ -30,6 +30,8 @@ export const TextTitleStyled = styled.span`
     padding-left: 15px;
     top: 73px;
   }
+  @media (max-width: 450px) {
+    font-size: 24px;}
 `
 
 const TitleCardStyled = styled.div`

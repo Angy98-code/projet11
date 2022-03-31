@@ -6,19 +6,18 @@ import Chevron from 'react-chevron'
 import '../../styles/slide.css'
 
 const ImageCardStyled = styled.div`
-position: relative;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-    max-width: 100%;
-    height: 280px;
-    background-color: rgba(220, 220, 220, 0.3);
-    border-radius: 25px;
-    @media(min-width : 876px){
-     margin-right: 80px;
+  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  max-width: 100%;
+  height: 280px;
+  background-color: rgba(220, 220, 220, 0.3);
+  border-radius: 25px;
+  @media (min-width: 876px) {
+    margin-right: 80px;
     margin-left: 80px;
-    
-}
+  }
 `
 const ImageStyled = styled.img`
   position: absolute;
@@ -41,8 +40,8 @@ const ChevronLeftStyled = styled.div`
     left: 0px;
   }
   @media (max-width: 600px) {
-   font-size: 40px;
-   top : 120px;
+    font-size: 40px;
+    top: 120px;
   }
 `
 const ChevronRightStyled = styled.div`
@@ -85,12 +84,17 @@ const ChevronRightStyled = styled.div`
 // }
 
 const IndexStyled = styled.div`
-  right: 45%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   color: #ffffff;
   font-size: 20px;
-  position : absolute;
+  position: absolute;
   bottom: 0;
-  z-index:1;
+  z-index: 1;
+  @media (max-width: 450px) {
+    display:none;
+  }
 `
 
 function Carousel({ slides }) {
@@ -146,6 +150,3 @@ function Carousel({ slides }) {
   )
 }
 export default Carousel
-
-
-

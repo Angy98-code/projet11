@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import data from '../../data'
 import Carousel from '../../components/Carousel'
 import styled from 'styled-components'
@@ -6,10 +6,10 @@ import Rating from '../../components/Rating' // pour props = stars
 //import Chevron from 'react-chevron'
 import '../../styles/index.css'
 //import React, { useState } from "react"; //chevron
-import CollapseDescriptionAndEquipments from '../../components/CollapseDescription&Equipments'
+import CollapseDescriptionAndEquipments from '../../components/CollapseDescriptionEquipments'
 import Footer from '../../components/Footer'
-//import NamehostAndPicture from '../../components/NameHostAndPicture'
 
+//import NamehostAndPicture from '../../components/NameHostAndPicture'
 
 //styled Title, country, name and host picture
 //TitleHost is the main
@@ -40,21 +40,22 @@ const TitleHostStyled = styled.div`
     margin-right: 80px;
     margin-left: 80px;
   }
+  @media (max-width: 450px) {
+    margin-bottom: 0px;
 `
-const TitleAndLocationStyled = styled.div``
+const TitleAndLocationStyled = styled.div`
+  width: 100%;
+  height: 100px;
+`
 
 export const NamehostAndPictureStyled = styled.div`
   display: flex;
   justify-content: space-between;
   @media (max-width: 600px) {
-   position: absolute; 
-    top: 582px;
-    right: 21px;
+    position:absolute;
+    bottom: -15px;
+    right: 10px;
   }
-  @media (max-width: 450px) {
-    top: 565px;
-    right: 21px;
-  } 
 `
 export const NamehostStyled = styled.div`
   display: flex;
@@ -70,20 +71,22 @@ export const NamehostStyled = styled.div`
   color: #ff6060;
   @media (max-width: 450px) {
     line-height: 20px;
-    font-size: 15px;
+    font-size: 12px;
   }
 `
 const AppartmentTitleStyled = styled.div`
   font-style: normal;
   font-weight: 500;
+  margin-right : 10px;
   font-size: 36px;
-  line-height: 51px;
   display: flex;
   align-items: flex-end;
   color: #ff6060;
   @media (max-width: 600px) {
     font-size: 28px;
-    
+  }
+  @media (max-width: 450px) {
+    font-size: 18px;
   }
 `
 const AppartmentLocationStyled = styled.div`
@@ -94,6 +97,9 @@ const AppartmentLocationStyled = styled.div`
   display: flex;
   align-items: flex-end;
   color: #ff6060;
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `
 //styled tags and likes
 // TagAndLikesContainer is the main
@@ -108,8 +114,7 @@ const TagsAndRatingContainerStyled = styled.div`
     margin-left: 80px;
   }
   @media (max-width: 600px) {
-    flex-direction : column;
-    position : relative;
+    flex-direction: column;
   }
 `
 const TagsListStyled = styled.span`
@@ -122,17 +127,28 @@ const TagsListStyled = styled.span`
   text-align: center;
   background-color: #ff6060;
   color: #ffffff;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding-right: 21px;
+  padding-left: 21px;
   margin-right: 15px;
   line-height: 24px;
   align-items: center;
   @media (max-width: 600px) {
-   font-size: 12px;
+    font-size: 12px;
+  }
+  @media (max-width: 480px) {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 5px;
+  }
+  @media (max-width: 373px) {
+    font-size: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 `
 const TagsDivStyled = styled.div`
   display: flex;
+  font-size: 14px;
 `
 
 //StarsDiv
@@ -144,7 +160,6 @@ const StarsDivStyled = styled.div`
 `
 const StarGreyStyled = styled.span`
   color: #e3e3e3;
-  position: relative;
 `
 
 const StarRedStyled = styled.span`
@@ -161,13 +176,14 @@ const DescriptionAndEquipmentsBlocStyled = styled.div`
   margin-right: 10px;
   margin-bottom: 30px;
   column-gap: 50px;
+  font-size: 18px;
   @media (min-width: 876px) {
     margin-right: 80px;
     margin-left: 80px;
   }
   @media (max-width: 600px) {
-    flex-direction:column;
-    row-gap : 25px;
+    flex-direction: column;
+    row-gap: 25px;
   }
 `
 // const DivDisplayNoneStyled = styled.div`
@@ -181,14 +197,23 @@ const DescriptionAndEquipmentsBlocStyled = styled.div`
 //   }
 // `
 
-
-
+const ContainerTitleLocationRatingHostStyled = styled.div`
+position: relative;
+`
 
 function AppartmentChoice() {
   const params = useParams()
   const { id } = params
   const appartment = data.find((element) => element.id === id)
-
+  //page erreur quand id n'est pas le bon
+  // dans app page erreur si chemin ne correspond pas
+  if (!appartment) {
+    //avant redirect maintenant Navigate to avec replace
+    //1er 404page ne pas utiliser de chiffre problème à l'import
+    //2eme ce composant error le retourner à la place de
+    //Navigate... fonctionne aussi
+    return <Navigate to="/404" replace />
+  }
   // usename and name up & down
   const HostName = appartment.host.name.split(' ')
   console.log(HostName)
@@ -208,45 +233,45 @@ function AppartmentChoice() {
     <div>
       <Carousel slides={PicturesDataArray} />
 
-      <TitleHostStyled>
-        <TitleAndLocationStyled>
-          <AppartmentTitleStyled>{appartment.title}</AppartmentTitleStyled>
-          <AppartmentLocationStyled>
-            {appartment.location}
-          </AppartmentLocationStyled>
-        </TitleAndLocationStyled>
+      <ContainerTitleLocationRatingHostStyled>
+        <TitleHostStyled>
+          <TitleAndLocationStyled>
+            <AppartmentTitleStyled>{appartment.title}</AppartmentTitleStyled>
+            <AppartmentLocationStyled>
+              {appartment.location}
+            </AppartmentLocationStyled>
+          </TitleAndLocationStyled>
 
-        <NamehostAndPictureStyled>
-          <NamehostStyled>
-            {HostName.map((element, index) => (
-              <span key={index}>{element}</span>
+          <NamehostAndPictureStyled>
+            <NamehostStyled>
+              {HostName.map((element, index) => (
+                <span key={index}>{element}</span>
+              ))}
+            </NamehostStyled>
+            <ImgContainerStyled>
+              <ImageHostStyled src={appartment.host.picture}></ImageHostStyled>
+            </ImgContainerStyled>
+          </NamehostAndPictureStyled>
+        </TitleHostStyled>
+
+        <TagsAndRatingContainerStyled>
+          <TagsDivStyled>
+            {appartment.tags.map((tag, index) => (
+              <TagsListStyled key={index}>{tag}</TagsListStyled>
             ))}
-          </NamehostStyled>
-          <ImgContainerStyled>
-            <ImageHostStyled src={appartment.host.picture}></ImageHostStyled>
-          </ImgContainerStyled>
-        </NamehostAndPictureStyled>
-      </TitleHostStyled>
+          </TagsDivStyled>
 
-      <TagsAndRatingContainerStyled>
-        <TagsDivStyled>
-          {appartment.tags.map((tag, index) => (
-            <TagsListStyled key={index}>{tag}</TagsListStyled>
-          ))}
-        </TagsDivStyled>
+          <StarsDivStyled>
+            <StarGreyStyled>
+              <Rating stars={5} />
+            </StarGreyStyled>
 
-        <StarsDivStyled>
-          <StarGreyStyled>
-            <Rating stars={5} />
-          </StarGreyStyled>
-
-          <StarRedStyled>
-            <Rating stars={appartment.rating} />
-          </StarRedStyled>
-        </StarsDivStyled>
-
-        
-      </TagsAndRatingContainerStyled>
+            <StarRedStyled>
+              <Rating stars={appartment.rating} />
+            </StarRedStyled>
+          </StarsDivStyled>
+        </TagsAndRatingContainerStyled>
+      </ContainerTitleLocationRatingHostStyled>
 
       <DescriptionAndEquipmentsBlocStyled>
         <CollapseDescriptionAndEquipments

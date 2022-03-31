@@ -21,6 +21,9 @@ const DescriptionInformationStyled = styled.div`
   padding-bottom: 30px;
   color: #ff6060;
   flex: 1;
+  @media (max-width: 450px) {
+    font-size: 12px;
+  }
 `
 
 const DivStyled = styled.div`
@@ -42,6 +45,9 @@ const TextStyled = styled.div`
   line-height: 26px;
   color: #ffffff;
   background-color: #ff6060;
+  @media (max-width: 450px) {
+    font-size: 13px;
+  }
 `
 const ButtonChevronStyled = styled.button`
   color: #ffffff;

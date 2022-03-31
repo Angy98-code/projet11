@@ -20,8 +20,8 @@ const CopyRightStyled = styled.span`
 margin-top: 20px;
 color : #ffffff;
 font-size: 24px;
-@media(max-width:420px){
-  font-size : 18px;
+@media(max-width:450px){
+  font-size : 12px;
 }
 `
 
