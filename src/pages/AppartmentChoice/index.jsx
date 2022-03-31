@@ -231,12 +231,12 @@ function AppartmentChoice() {
 
       <ContainerTitleLocationRatingHostStyled>
         <TitleHostStyled>
-          <TitleAndLocationStyled>
+          <div>
             <AppartmentTitleStyled>{appartment.title}</AppartmentTitleStyled>
             <AppartmentLocationStyled>
               {appartment.location}
             </AppartmentLocationStyled>
-          </TitleAndLocationStyled>
+          </div>
 
           <NamehostAndPictureStyled>
             <NamehostStyled>
