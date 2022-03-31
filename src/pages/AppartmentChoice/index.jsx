@@ -43,10 +43,6 @@ const TitleHostStyled = styled.div`
   @media (max-width: 450px) {
     margin-bottom: 0px;
 `
-const TitleAndLocationStyled = styled.div`
-  width: 100%;
-  height: 100px;
-`
 
 export const NamehostAndPictureStyled = styled.div`
   display: flex;
