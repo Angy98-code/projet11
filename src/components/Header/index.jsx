@@ -57,7 +57,7 @@ function Header() {
       </LinkStyled>
       <NavStyled>
         <StyledLink to="/">Accueil</StyledLink>
-        <StyledLink to="/Propos">A Propos</StyledLink>
+        <StyledLink to="/propos">A Propos</StyledLink>
       </NavStyled>
     </NavContainerStyled>
   )

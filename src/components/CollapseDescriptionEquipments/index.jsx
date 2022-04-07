@@ -10,15 +10,15 @@ const DescriptionInformationStyled = styled.div`
   top: -6px;
   display: flex;
   background-color: rgba(220, 220, 220, 0.3);
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 16px;
   border-radius: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   color: #ff6060;
   flex: 1;
   @media (max-width: 450px) {
@@ -54,6 +54,8 @@ const ButtonChevronStyled = styled.button`
   background-color: #ff6060;
   border: none;
   font-size: 25px;
+  padding:0px;
+  margin: 0px;
 `
 
 function CollapseDescriptionAndEquipments({ title, content }) {
@@ -74,7 +76,7 @@ function CollapseDescriptionAndEquipments({ title, content }) {
           className="chevronUp"
         >
           {/* {show ? <Chevron direction={'down'} /> : <Chevron direction={'up'} />} */}
-          <Chevron direction={show ? 'down' : 'up'} />
+          <Chevron className='chevron' direction={show ? 'down' : 'up'} />
         </ButtonChevronStyled>
       </TextStyled>
       <DescriptionInformationStyled

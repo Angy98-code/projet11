@@ -26,6 +26,9 @@ export const CardStyled = styled.div`
     );
     border-radius : 25px;
   }
+    @media (max-width: 450px) {
+    margin : 10px;
+  }
 `
 
 export const ImageCard = styled.img`

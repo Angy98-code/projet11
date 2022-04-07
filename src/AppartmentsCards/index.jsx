@@ -32,7 +32,7 @@ function Appartments() {
   return (
     <ContainerCard>
       {data.map((appartment, index) => (
-        <LinkStyled to={`/AppartmentChoice/${appartment.id}`} key={index}>
+        <LinkStyled to={`/appartmentchoice/${appartment.id}`} key={index}>
           <Card
             key={`${appartment.id}-${index}`}
             title={appartment.title}
